@@ -71,8 +71,10 @@ export default function Classes() {
         async function fetchData() {
             try {
                 const result = await axios.get<ClassData[]>(`http://localhost:3050/api/class/classes`);
+                console.log("result: ", result);
                 if (result && result.data) {
-                    setClassesData(result.data);
+                    setClassesData(result.data.data);
+                    console.log("class: ", classesData);
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);

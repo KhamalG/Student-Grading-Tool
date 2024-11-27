@@ -71,7 +71,7 @@ export default function Students() {
                 const result = await axios.get<StudentData[]>(`http://localhost:3050/api/student/students`);
                 console.log("result: ", result);
                 if (result && result.data) {
-                    setStudentsData(result.data);
+                    setStudentsData(result.data.data);
                     console.log('response data: ', studentsData);
                 }
             } catch (error) {

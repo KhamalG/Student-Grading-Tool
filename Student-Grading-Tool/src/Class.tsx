@@ -70,13 +70,13 @@ export default function Class() {
             try {
                 const id = localStorage.getItem('class');
                 const classResult = await axios.get<ClassData[]>(`http://localhost:3050/api/class/${id}/class`);
-                if (classResult && classResult.data && classResult.data.length > 0) {
-                    setClassData(classResult.data[0]);
+                if (classResult && classResult.data && classResult.data.data.length > 0) {
+                    setClassData(classResult.data.data[0]);
                 }
 
                 const result = await axios.get<ClassData[]>(`http://localhost:3050/api/assignment/${id}/class`);
                 if (result && result.data) {
-                    setAssignmentData(result.data);
+                    setAssignmentData(result.data.data);
                 }
             
             } catch (error) {

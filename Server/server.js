@@ -1,14 +1,14 @@
-require('dotenv').config();
+require('dotenv').config({ path: 'config.env' });
 const express = require('express');
 const app = express();
 const cors = require("cors");
-const databse = require("./database");
+const {database} = require("./database");
 const { Assignment } = require('./models/assignments');
 const {Student} = require('./models/students');
 const {Class} = require('./models/classes');
 const { User } = require('./models/users');
 
-databse()
+database()
 
 app.use(express.json());
 app.use(cors());
@@ -232,5 +232,5 @@ app.delete('/api/class/delete', async (req, res) => {
 
 
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3050;
 app.listen(port, () => console.log(`Listening on port ${port}...`))

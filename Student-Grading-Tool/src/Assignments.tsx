@@ -68,7 +68,8 @@ export default function Assignments () {
             try {
                 const result = await axios.get<AssignmentData[]>(`http://localhost:3050/api/assignment/assignments`);
                 if (result && result.data) {
-                    setAssignmentsData(result.data);
+                    console.log("assignment: ", result);
+                    setAssignmentsData(result.data.data);
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);

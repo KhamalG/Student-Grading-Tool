@@ -87,7 +87,7 @@ export default function NewAssignments() {
                 const id = localStorage.getItem('class');
                 const result = await axios.get<StudentData>(`http://localhost:3050/api/class/${id}/class`);
                 if (result && result.data) {
-                    setStudentsData(result.data);
+                    setStudentsData(result.data.data);
                     if (!className) {
                         setClassName(studentsData.name);
                     }
